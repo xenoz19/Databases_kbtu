@@ -1,0 +1,76 @@
+Laboratory Work 1 — ERD Diagram
+
+System: International Airport Database
+
+The database is designed to manage information about airports, airlines, flights, passengers, bookings, boarding passes, baggage, security checks, and baggage checks.
+
+Entities:
+
+1. Airport
+Stores information about airports.
+Primary Key: airport_id
+Attributes:
+airport_id, airport_name, country, state, city, created_at, updated_at.
+
+2. Airline
+Stores information about airline companies.
+Primary Key: airline_id
+Attributes:
+airline_id, airline_code, name, country, created_at, updated_at.
+
+3. Flight
+Stores scheduled and actual flight information.
+Primary Key: flight_id
+Foreign Keys:
+airline_id → Airline
+departure_airport_id → Airport
+arrival_airport_id → Airport
+
+4. Passenger
+Stores passenger information.
+Primary Key: passenger_id
+Unique attribute: passport_number.
+
+5. Booking
+Stores information about passenger bookings.
+Primary Key: booking_id
+Foreign Keys:
+flight_id → Flight
+passenger_id → Passenger.
+
+6. Boarding Pass
+Stores issued boarding pass information.
+Primary Key: boarding_pass_id
+Foreign Key:
+booking_id → Booking.
+
+7. Baggage
+Stores baggage information.
+Primary Key: baggage_id
+Foreign Key:
+booking_id → Booking.
+
+8. Security Check
+Stores passenger security check results.
+Primary Key: security_check_id
+Foreign Key:
+passenger_id → Passenger.
+
+9. Baggage Check
+Stores baggage check information.
+Primary Key: baggage_check_id
+Foreign Keys:
+booking_id → Booking
+passenger_id → Passenger.
+
+Relationships:
+
+One Airline can have many Flights.
+One Airport can be used by many Flights as a departure airport.
+One Airport can be used by many Flights as an arrival airport.
+One Flight can have many Bookings.
+One Passenger can have many Bookings.
+One Booking can have one Boarding Pass.
+One Booking can have many Baggage records.
+One Passenger can have many Security Checks.
+One Booking and one Passenger can be related to many Baggage Checks.
