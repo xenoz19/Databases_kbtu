@@ -1,9 +1,9 @@
--- 1
+--  1
 SELECT UPPER(airline_name) AS airline_name_upper
 FROM airline;
 
 
--- 2
+--  2
 SELECT REPLACE(airline_name, 'Air', 'Aero') AS changed_name
 FROM airline;
 
